@@ -1,0 +1,122 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "gandamedia/scout-group-website",
+    "type": "project",
+    "description": "An open-source website and volunteer administration platform for Scout Groups.",
+    "keywords": ["laravel", "filament", "scouts", "charity", "cms"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "althinect/filament-spatie-roles-permissions": "^3.3",
+        "brick/money": "^0.11.2",
+        "dompdf/dompdf": "^3.1",
+        "filament/filament": "~5.0",
+        "filament/spatie-laravel-media-library-plugin": "~5.0",
+        "guava/calendar": "^3.1",
+        "inertiajs/inertia-laravel": "^3.0",
+        "inertiaui/modal": "^3.0",
+        "laravel/fortify": "^1.30",
+        "laravel/framework": "^13.0",
+        "laravel/scout": "^11.3",
+        "laravel/tinker": "^3.0",
+        "laravel/wayfinder": "^0.1.9",
+        "league/flysystem-aws-s3-v3": "^3.0",
+        "owen-it/laravel-auditing": "14.0.6",
+        "redberry/page-builder-plugin": "3.0",
+        "saloonphp/laravel-plugin": "^4.0",
+        "saloonphp/rate-limit-plugin": "^2.5",
+        "saloonphp/saloon": "^4.0",
+        "spatie/eloquent-sortable": "^5.0",
+        "spatie/laravel-medialibrary": "^11.15",
+        "spatie/laravel-pdf": "^2.12",
+        "spatie/laravel-permission": "^8.1",
+        "spatie/laravel-settings": "^3.9",
+        "spatie/laravel-sluggable": "^3.8",
+        "staudenmeir/laravel-adjacency-list": "^1.25"
+    },
+    "require-dev": {
+        "davidbadura/faker-markdown-generator": "^1.1",
+        "fakerphp/faker": "^1.23",
+        "jonpurvis/lawman": "^4.2",
+        "laravel/boost": "^2.2",
+        "laravel/pail": "^1.2.2",
+        "laravel/pint": "^1.18",
+        "laravel/sail": "^1.41",
+        "laraveldaily/filacheck": "^1.2",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.6",
+        "pestphp/pest": "^4.1",
+        "pestphp/pest-plugin-laravel": "^4.1",
+        "phpunit/phpunit": "^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "setup": [
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate",
+            "@php artisan migrate:fresh --force --seed",
+            "npm install",
+            "npm run build"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'"
+        ],
+        "dev:ssr": [
+            "npm run build:ssr",
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"php artisan inertia:start-ssr\" --names=server,queue,logs,ssr --kill-others"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --ansi"
+        ],
+        "pre-package-uninstall": [
+            "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
