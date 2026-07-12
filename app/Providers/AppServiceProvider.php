@@ -9,6 +9,8 @@ use Faker\Generator as FakerGenerator;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\ServiceProvider;
+use Inertia\ExceptionResponse;
+use Inertia\Inertia;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,6 +36,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Inertia::handleExceptionsUsing(function (ExceptionResponse $response): ?ExceptionResponse {
+            if (app()->environment(['local', 'testing'])) {
+                return null;
+            }
+
+            if (! in_array($response->statusCode(), [403, 404, 500, 503], true)) {
+                return null;
+            }
+
+            return $response
+                ->render('ErrorPage', ['status' => $response->statusCode()])
+                ->withSharedData();
+        });
+
         VerifyEmail::toMailUsing(function (object $notifiable, string $url) {
             return app(GroupMailMessageFactory::class)->verification($url);
         });
