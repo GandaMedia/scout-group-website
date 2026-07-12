@@ -1,6 +1,7 @@
 <?php
 
 use App\Settings\GroupProfileSettings;
+use Inertia\Testing\AssertableInertia as Assert;
 
 it('renders complete social metadata when SSR is unavailable', function () {
     $settings = app(GroupProfileSettings::class);
@@ -18,4 +19,15 @@ it('renders complete social metadata when SSR is unavailable', function () {
         ->assertSee('name="twitter:card" content="summary_large_image"', false)
         ->assertSee('name="twitter:description"', false)
         ->assertSee('name="twitter:image"', false);
+});
+
+it('uses the current request origin instead of a stale configured website URL', function () {
+    $settings = app(GroupProfileSettings::class);
+    $settings->website_url = 'https://retired-host.example';
+    $settings->save();
+
+    $this->get('https://scouts.example/')
+        ->assertSuccessful()
+        ->assertInertia(fn (Assert $page) => $page
+            ->where('requestOrigin', 'https://scouts.example'));
 });

@@ -69,6 +69,7 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'name' => $groupProfileSettings->group_name,
+            'requestOrigin' => $request->getSchemeAndHttpHost(),
             'groupProfile' => [
                 'name' => $groupProfileSettings->group_name,
                 'shortName' => $groupProfileSettings->group_short_name,

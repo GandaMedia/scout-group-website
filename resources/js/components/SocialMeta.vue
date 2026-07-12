@@ -43,7 +43,7 @@ const socialImage = computed(() =>
 );
 
 function absoluteUrl(value: string): string {
-    const baseUrl = groupProfile.value.websiteUrl || windowLocation();
+    const baseUrl = windowLocation() ?? page.props.requestOrigin;
 
     try {
         return new URL(value, baseUrl).toString();
@@ -52,12 +52,12 @@ function absoluteUrl(value: string): string {
     }
 }
 
-function windowLocation(): string {
+function windowLocation(): string | null {
     if (typeof window !== 'undefined') {
         return window.location.origin;
     }
 
-    return 'http://localhost';
+    return null;
 }
 </script>
 
