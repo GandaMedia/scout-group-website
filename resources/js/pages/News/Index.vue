@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import NewsPostCard from '@/components/news/NewsPostCard.vue';
+import SocialMeta from '@/components/SocialMeta.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { index as newsIndex } from '@/routes/news';
 import type { AppPageProps, GroupProfile } from '@/types';
 import type { NewsArchiveTag, NewsPostSummary } from '@/types/news';
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
 defineProps<{
@@ -20,7 +21,7 @@ const groupProfile = computed((): GroupProfile => page.props.groupProfile);
 
 <template>
     <AppLayout>
-        <Head :title="heading" />
+        <SocialMeta :title="heading" :description="description" />
 
         <main class="min-h-screen bg-white pb-20">
             <section class="px-4 pt-10 lg:px-0">

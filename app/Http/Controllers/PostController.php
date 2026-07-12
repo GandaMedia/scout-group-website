@@ -51,6 +51,8 @@ class PostController extends Controller
                     'slug' => $resolvedPost->slug,
                     'author_name' => null,
                     'published_at' => $resolvedPost->published_at?->toIso8601String(),
+                    'excerpt' => null,
+                    'image' => null,
                     'tags' => [],
                     'blocks' => [],
                     'is_password_protected' => true,
@@ -63,12 +65,16 @@ class PostController extends Controller
             Cookie::queue($postPasswordGate->authorizationCookie());
         }
 
+        [$excerpt, $image] = $this->resolvePreview($resolvedPost);
+
         return Inertia::render('News/Show', [
             'post' => [
                 'title' => $resolvedPost->title,
                 'slug' => $resolvedPost->slug,
                 'author_name' => $resolvedPost->author_name,
                 'published_at' => $resolvedPost->published_at?->toIso8601String(),
+                'excerpt' => $excerpt,
+                'image' => $image,
                 'tags' => $this->serializeTags($resolvedPost),
                 'blocks' => $pageBlockSerializer->serialize($resolvedPost),
                 'is_password_protected' => $resolvedPost->is_password_protected,

@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import SocialMeta from '@/components/SocialMeta.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { show as showPage } from '@/routes/page';
-import { Head, usePage } from '@inertiajs/vue3';
+import { usePage } from '@inertiajs/vue3';
 
 // defineProps<{}>()
 import BeaversLogo from '@/components/logos/BeaversLogo.vue';
@@ -69,7 +70,10 @@ const groupProfile = computed((): GroupProfile => page.props.groupProfile);
 </script>
 <template>
     <AppLayout>
-        <Head :title="`Welcome to ${groupProfile.name}`" />
+        <SocialMeta
+            :title="`Welcome to ${groupProfile.name}`"
+            :description="`Skills for life, weekly adventures and joining information from ${groupProfile.name}.`"
+        />
         <HeroSection />
         <div
             class="mx-auto mt-6 max-w-7xl bg-scout-purple px-4 py-4 text-white"

@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import SocialMeta from '@/components/SocialMeta.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { calendar } from '@/routes';
-import { Head, Link } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/vue3';
 
 const props = defineProps<{
     event: {
@@ -24,7 +25,12 @@ const dateLabel = new Intl.DateTimeFormat('en-GB', {
 
 <template>
     <AppLayout>
-        <Head :title="event.title" />
+        <SocialMeta
+            :title="event.title"
+            :description="event.content ?? `${event.title} on ${dateLabel}.`"
+            :image="event.image"
+            type="article"
+        />
         <main class="mx-auto min-h-[55vh] max-w-5xl px-4 py-12 lg:px-0">
             <Link
                 :href="calendar()"

@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import GroupLogo from '@/components/logos/GroupLogo.vue';
+import SocialMeta from '@/components/SocialMeta.vue';
 import { home } from '@/routes';
 import type { AppPageProps } from '@/types';
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { ArrowLeft, Home } from 'lucide-vue-next';
 import { computed } from 'vue';
 
@@ -64,7 +65,11 @@ function goBack(): void {
 </script>
 
 <template>
-    <Head :title="`${status} - ${content.title}`" />
+    <SocialMeta
+        :title="`${status} - ${content.title}`"
+        :description="content.description"
+        noIndex
+    />
 
     <main class="min-h-screen bg-white text-scout-night">
         <div

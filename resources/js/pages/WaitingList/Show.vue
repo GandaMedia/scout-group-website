@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import WaitingListEntryController from '@/actions/App/Http/Controllers/WaitingListEntryController';
 import InputError from '@/components/InputError.vue';
+import SocialMeta from '@/components/SocialMeta.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import AppLayout from '@/layouts/AppLayout.vue';
 import type { AppPageProps } from '@/types';
-import { Head, useForm, usePage } from '@inertiajs/vue3';
+import { useForm, usePage } from '@inertiajs/vue3';
 import { computed, nextTick, onMounted, ref } from 'vue';
 
 interface WaitingListSectionPageData {
@@ -156,7 +157,7 @@ onMounted(async () => {
 
 <template>
     <AppLayout>
-        <Head :title="section.title" />
+        <SocialMeta :title="section.title" :description="section.intro" />
 
         <main
             class="bg-linear-to-b from-white via-scout-pink/10 to-white pb-16"

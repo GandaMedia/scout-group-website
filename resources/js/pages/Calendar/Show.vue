@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import SocialMeta from '@/components/SocialMeta.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import CalendarMonthView from '@/pages/CalendarMonthView.vue';
-import { Head } from '@inertiajs/vue3';
 
 type CalendarEvent = {
     id: number;
@@ -47,7 +47,10 @@ defineProps<{
 
 <template>
     <AppLayout>
-        <Head :title="`Calendar | ${month.label}`" />
+        <SocialMeta
+            :title="`Calendar | ${month.label}`"
+            :description="`Scout meetings, activities and events for ${month.label}.`"
+        />
         <div class="mx-auto max-w-7xl px-4 py-6 sm:px-0">
             <CalendarMonthView :month="month" :days="days" :filters="filters" />
         </div>

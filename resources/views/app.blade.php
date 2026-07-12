@@ -33,14 +33,6 @@
 
         @php($groupProfile = app(\App\Settings\GroupProfileSettings::class))
 
-        <title data-inertia>{{ $groupProfile->group_name }}</title>
-        <meta data-inertia name="description" content="Skills for life, news, activities and joining information from {{ $groupProfile->group_name }}.">
-        <meta property="og:site_name" content="{{ $groupProfile->group_name }}">
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="{{ $groupProfile->group_name }}">
-        <meta property="og:url" content="{{ url()->current() }}">
-        <link rel="canonical" href="{{ url()->current() }}">
-
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -53,7 +45,24 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 
         @vite(['resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
-        @inertiaHead
+        <x-inertia::head>
+            <title>{{ $groupProfile->group_name }}</title>
+            <meta name="description" content="Skills for life, news, activities and joining information from {{ $groupProfile->group_name }}.">
+            <link rel="canonical" href="{{ url()->current() }}">
+            <meta property="og:site_name" content="{{ $groupProfile->group_name }}">
+            <meta property="og:locale" content="en_GB">
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="{{ $groupProfile->group_name }}">
+            <meta property="og:description" content="Skills for life, news, activities and joining information from {{ $groupProfile->group_name }}.">
+            <meta property="og:url" content="{{ url()->current() }}">
+            <meta property="og:image" content="{{ url('/img/cubs-in-helmets-outdoors-jpg.jpg') }}">
+            <meta property="og:image:alt" content="{{ $groupProfile->group_name }} Scouts">
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="{{ $groupProfile->group_name }}">
+            <meta name="twitter:description" content="Skills for life, news, activities and joining information from {{ $groupProfile->group_name }}.">
+            <meta name="twitter:image" content="{{ url('/img/cubs-in-helmets-outdoors-jpg.jpg') }}">
+            <meta name="twitter:image:alt" content="{{ $groupProfile->group_name }} Scouts">
+        </x-inertia::head>
     </head>
     <body class="font-sans antialiased">
         @inertia

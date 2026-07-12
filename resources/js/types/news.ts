@@ -26,6 +26,8 @@ export interface NewsPost {
     slug: string;
     author_name: string | null;
     published_at: string | null;
+    excerpt: string | null;
+    image: string | null;
     tags: NewsTag[];
     blocks: PageBlock[];
     is_password_protected: boolean;

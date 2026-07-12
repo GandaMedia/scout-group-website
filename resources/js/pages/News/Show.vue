@@ -2,10 +2,11 @@
 import { unlock as unlockPost } from '@/actions/App/Http/Controllers/PostController';
 import InputError from '@/components/InputError.vue';
 import PageBlockRenderer from '@/components/pageBlocks/PageBlockRenderer.vue';
+import SocialMeta from '@/components/SocialMeta.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { index as newsIndex, tag as showNewsTag } from '@/routes/news';
 import type { NewsPost } from '@/types/news';
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 
 const props = defineProps<{
     post: NewsPost;
@@ -37,7 +38,14 @@ const submit = (): void => {
 
 <template>
     <AppLayout>
-        <Head :title="post.title" />
+        <SocialMeta
+            :title="post.title"
+            :description="post.excerpt ?? undefined"
+            :image="post.image"
+            type="article"
+            :publishedAt="post.published_at"
+            :noIndex="post.is_password_protected"
+        />
 
         <main class="bg-white pb-20">
             <section class="px-4 pt-10 lg:px-0">

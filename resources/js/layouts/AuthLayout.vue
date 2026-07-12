@@ -2,6 +2,7 @@
 import AppFooter from '@/components/AppFooter.vue';
 import AppHeader from '@/components/AppHeader.vue';
 import GroupLogo from '@/components/logos/GroupLogo.vue';
+import SocialMeta from '@/components/SocialMeta.vue';
 
 defineProps<{
     title?: string;
@@ -10,6 +11,7 @@ defineProps<{
 </script>
 
 <template>
+    <SocialMeta :title="title" :description="description" noIndex />
     <div class="flex min-h-svh flex-col bg-background">
         <AppHeader />
 
