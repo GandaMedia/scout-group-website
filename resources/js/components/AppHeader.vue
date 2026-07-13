@@ -1,7 +1,7 @@
 <template>
     <div class="px-4 lg:px-0">
         <div
-            class="mx-auto mb-2 flex max-w-7xl flex-row flex-wrap items-center justify-between gap-y-4 py-4"
+            class="relative z-20 mx-auto mb-2 flex max-w-7xl flex-row flex-wrap items-center justify-between gap-y-4 py-4"
         >
             <Link :href="HomeController()" class="flex items-center gap-x-2">
                 <GroupLogo class="h-18 text-scout-purple" />

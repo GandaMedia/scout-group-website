@@ -11,39 +11,57 @@
                 <h4 class="pb-2 text-lg font-black">Useful Links</h4>
                 <ul>
                     <li class="mb-1">
-                        <a href="https://www.scouts.org.uk/" target="_blank"
+                        <a
+                            href="https://www.scouts.org.uk/"
+                            target="_blank"
+                            class="hover:underline"
                             >Scouts UK</a
                         >
                     </li>
                     <li v-if="!auth.user" class="mb-1">
-                        <Link :href="login()">Leader login</Link>
+                        <Link :href="login()" class="hover:underline"
+                            >Leader login</Link
+                        >
                     </li>
                     <li v-if="!auth.user" class="mb-1">
-                        <Link :href="register()">Leader registration</Link>
+                        <Link :href="register()" class="hover:underline"
+                            >Leader registration</Link
+                        >
                     </li>
                     <li v-if="auth.canAccessLeaderTools" class="mb-1">
-                        <Link :href="projects()">Leader tools</Link>
+                        <Link :href="projects()" class="hover:underline"
+                            >Leader tools</Link
+                        >
                     </li>
                     <li
                         v-if="auth.canAccessAdmin && auth.adminUrl"
                         class="mb-1"
                     >
-                        <a :href="auth.adminUrl">Admin</a>
+                        <a :href="auth.adminUrl" class="hover:underline"
+                            >Admin</a
+                        >
                     </li>
                     <li class="mb-1">
-                        <a :href="groupProfile.districtUrl" target="_blank">{{
-                            groupProfile.districtName
-                        }}</a>
+                        <a
+                            :href="groupProfile.districtUrl"
+                            target="_blank"
+                            class="hover:underline"
+                            >{{ groupProfile.districtName }}</a
+                        >
                     </li>
                     <li class="mb-1">
                         <a
                             href="https://www.onlinescoutmanager.co.uk/"
                             target="_blank"
+                            class="hover:underline"
                             >Online Scout Manager (OSM)</a
                         >
                     </li>
                     <li class="mb-1">
-                        <a href="https://shop.scouts.org.uk/" target="_blank"
+                        <a
+                            href="https://shop.scouts.org.uk/"
+                            target="_blank"
+                            class="hover:underline"
                             >Scout Shop</a
                         >
                     </li>
@@ -53,17 +71,23 @@
                 <h4 class="pb-2 text-lg font-black">Useful Info</h4>
                 <ul>
                     <li class="mb-1">
-                        <Link :href="showPage({ page: 'privacy' })"
+                        <Link
+                            :href="showPage({ page: 'privacy' })"
+                            class="hover:underline"
                             >Privacy and GDPR</Link
                         >
                     </li>
                     <li class="mb-1">
-                        <Link :href="showPage({ page: 'terms' })"
+                        <Link
+                            :href="showPage({ page: 'terms' })"
+                            class="hover:underline"
                             >Terms and conditions</Link
                         >
                     </li>
                     <li class="mb-1">
-                        <Link :href="showPage({ page: 'cookie-policy' })"
+                        <Link
+                            :href="showPage({ page: 'cookie-policy' })"
+                            class="hover:underline"
                             >Cookie policy</Link
                         >
                     </li>
@@ -75,6 +99,7 @@
                         <a
                             :href="groupProfile.charityRegisterUrl"
                             target="_blank"
+                            class="hover:underline"
                             >Charity No: {{ groupProfile.charityNumber }}</a
                         >
                     </li>

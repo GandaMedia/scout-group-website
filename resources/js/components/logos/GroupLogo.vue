@@ -99,7 +99,7 @@ function fitText(
         xmlns="http://www.w3.org/2000/svg"
         id="Layer_1"
         version="1.1"
-        viewBox="0 0 260.07 91.22"
+        viewBox="0 0 260.07 96"
         fill="currentColor"
     >
         <path
@@ -109,7 +109,7 @@ function fitText(
         <text
             class="logo-text"
             x="0"
-            y="91"
+            y="89"
             :font-size="horizontalTextFit.fontSize"
             :textLength="horizontalTextFit.textLength"
             lengthAdjust="spacingAndGlyphs"
@@ -125,7 +125,8 @@ function fitText(
     font-style: normal;
     font-weight: 900;
     font-display: swap;
-    src: url('/fonts/nunito-sans/nunito-sans-900.ttf') format('truetype');
+    src: url('../../../../public/fonts/nunito-sans/nunito-sans-900.ttf')
+        format('truetype');
 }
 
 .logo-text {

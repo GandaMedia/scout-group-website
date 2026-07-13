@@ -24,6 +24,14 @@ type SectionHeroStyle = {
 };
 
 const sectionHeroStyles: Record<string, SectionHeroStyle> = {
+    contact: {
+        name: 'Contact',
+        logo: ScoutsLogo,
+        sectionClass: 'bg-scout-purple',
+        overlayClass: 'bg-scout-purple/85',
+        buttonClass:
+            'bg-scout-purple text-white hover:bg-white hover:text-scout-purple',
+    },
     squirrels: {
         name: 'Squirrels',
         logo: SquirrelsLogo,

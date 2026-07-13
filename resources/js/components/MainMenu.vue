@@ -9,11 +9,11 @@
             <Bars3Icon class="size-6" aria-hidden="true" />
         </button>
     </div>
-    <PopoverGroup class="hidden lg:flex lg:gap-x-12">
+    <PopoverGroup class="relative z-30 hidden lg:flex lg:gap-x-12">
         <template v-for="item in menu" :key="item.id">
             <Popover class="relative" v-if="item.children.length">
                 <PopoverButton
-                    class="flex items-center gap-x-1 text-lg/6 font-black text-gray-900"
+                    class="flex items-center gap-x-1 text-lg/6 font-black text-gray-900 transition-colors duration-300 ease-in-out hover:text-scout-purple"
                 >
                     {{ item.name }}
                     <ChevronDownIcon
@@ -31,7 +31,7 @@
                     leave-to-class="opacity-0 translate-y-1"
                 >
                     <PopoverPanel
-                        class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-white shadow-lg outline-1 outline-gray-900/5"
+                        class="absolute left-1/2 z-50 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-white shadow-lg outline-1 outline-gray-900/5"
                     >
                         <div class="p-4">
                             <div
@@ -68,14 +68,14 @@
                     v-if="item.external"
                     :href="item.link"
                     target="_blank"
-                    class="text-lg/6 font-black text-gray-900"
+                    class="text-lg/6 font-black text-gray-900 transition-colors duration-300 ease-in-out hover:text-scout-purple"
                     >{{ item.name }}</a
                 >
                 <Link
                     prefetch
                     v-else
                     :href="item.link"
-                    class="text-lg/6 font-black text-gray-900"
+                    class="text-lg/6 font-black text-gray-900 transition-colors duration-300 ease-in-out hover:text-scout-purple"
                     >{{ item.name }}</Link
                 >
             </template>
