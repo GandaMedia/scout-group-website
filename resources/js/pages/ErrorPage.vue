@@ -71,7 +71,9 @@ function goBack(): void {
         noIndex
     />
 
-    <main class="min-h-screen bg-white text-scout-night">
+    <main
+        class="min-h-screen bg-white text-scout-night dark:bg-background dark:text-white"
+    >
         <div
             class="grid min-h-screen lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.7fr)]"
         >
@@ -81,7 +83,7 @@ function goBack(): void {
                 <div class="w-full max-w-3xl">
                     <Link
                         :href="home()"
-                        class="inline-flex text-scout-purple transition-colors hover:text-scout-night focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-scout-purple"
+                        class="inline-flex text-scout-purple transition-colors hover:text-scout-night focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-scout-purple dark:text-white dark:hover:text-scout-yellow"
                         :aria-label="`Go to the ${groupName} homepage`"
                     >
                         <GroupLogo class="h-28 w-auto sm:h-32" />
@@ -104,7 +106,7 @@ function goBack(): void {
                     </h1>
 
                     <p
-                        class="mt-6 max-w-xl text-lg leading-8 text-scout-night/75"
+                        class="mt-6 max-w-xl text-lg leading-8 text-scout-night/75 dark:text-muted-foreground"
                     >
                         {{ content.description }}
                     </p>
@@ -119,7 +121,7 @@ function goBack(): void {
                         </Link>
                         <button
                             type="button"
-                            class="inline-flex min-h-12 items-center gap-2 border-2 border-scout-night px-5 py-3 font-bold transition-colors hover:bg-scout-night hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-scout-night"
+                            class="inline-flex min-h-12 items-center gap-2 border-2 border-scout-night px-5 py-3 font-bold transition-colors hover:bg-scout-night hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-scout-night dark:border-white dark:hover:bg-white dark:hover:text-scout-night"
                             @click="goBack"
                         >
                             <ArrowLeft class="size-5" aria-hidden="true" />

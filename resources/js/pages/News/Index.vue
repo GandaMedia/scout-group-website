@@ -23,7 +23,7 @@ const groupProfile = computed((): GroupProfile => page.props.groupProfile);
     <AppLayout>
         <SocialMeta :title="heading" :description="description" />
 
-        <main class="min-h-screen bg-white pb-20">
+        <main class="min-h-screen bg-white pb-20 dark:bg-background">
             <section class="px-4 pt-10 lg:px-0">
                 <div
                     class="mx-auto max-w-7xl overflow-hidden bg-scout-navy text-white"
@@ -96,7 +96,7 @@ const groupProfile = computed((): GroupProfile => page.props.groupProfile);
 
                     <div
                         v-else
-                        class="border border-dashed border-scout-purple/25 bg-white px-8 py-16 text-center"
+                        class="border border-dashed border-scout-purple/25 bg-white px-8 py-16 text-center dark:bg-card dark:ring-1 dark:ring-white/10"
                     >
                         <p
                             class="text-sm font-black tracking-[0.35em] text-scout-purple uppercase"
@@ -104,11 +104,13 @@ const groupProfile = computed((): GroupProfile => page.props.groupProfile);
                             Nothing here yet
                         </p>
                         <h2
-                            class="mt-4 text-3xl font-black tracking-tight text-scout-navy"
+                            class="mt-4 text-3xl font-black tracking-tight text-scout-navy dark:text-white"
                         >
                             No published posts yet - coming soon....
                         </h2>
-                        <p class="mx-auto mt-4 max-w-2xl text-slate-600">
+                        <p
+                            class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-muted-foreground"
+                        >
                             New updates will appear here once they are
                             published.
                         </p>

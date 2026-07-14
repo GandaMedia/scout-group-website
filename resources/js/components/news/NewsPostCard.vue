@@ -22,7 +22,7 @@ const formatDate = (value: string | null): string => {
 
 <template>
     <article
-        class="group flex h-full flex-col overflow-hidden border border-scout-purple/10 bg-white transition duration-300 hover:-translate-y-1"
+        class="group flex h-full flex-col overflow-hidden border border-scout-purple/10 bg-white transition duration-300 hover:-translate-y-1 dark:border-white/10 dark:bg-card"
     >
         <Link
             :href="showNewsPost({ post: post.slug })"
@@ -45,7 +45,7 @@ const formatDate = (value: string | null): string => {
 
         <div class="flex flex-1 flex-col p-6">
             <div
-                class="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold text-scout-navy/70"
+                class="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold text-scout-navy/70 dark:text-muted-foreground"
             >
                 <span>{{ formatDate(post.published_at) }}</span>
                 <template v-if="post.author_name">
@@ -54,7 +54,9 @@ const formatDate = (value: string | null): string => {
                 </template>
             </div>
 
-            <h2 class="text-2xl font-black tracking-tight text-scout-navy">
+            <h2
+                class="text-2xl font-black tracking-tight text-scout-navy dark:text-white"
+            >
                 <Link
                     :href="showNewsPost({ post: post.slug })"
                     class="transition hover:text-scout-purple"
@@ -65,13 +67,13 @@ const formatDate = (value: string | null): string => {
 
             <p
                 v-if="post.excerpt"
-                class="mt-4 flex-1 text-base leading-7 text-slate-700"
+                class="mt-4 flex-1 text-base leading-7 text-slate-700 dark:text-muted-foreground"
             >
                 {{ post.excerpt }}
             </p>
             <p
                 v-else-if="post.is_password_protected"
-                class="mt-4 flex-1 text-sm font-bold tracking-[0.2em] text-scout-navy/60 uppercase"
+                class="mt-4 flex-1 text-sm font-bold tracking-[0.2em] text-scout-navy/60 uppercase dark:text-muted-foreground"
             >
                 Password protected
             </p>
@@ -81,7 +83,7 @@ const formatDate = (value: string | null): string => {
                     v-for="tagItem in post.tags"
                     :key="tagItem.slug"
                     :href="showNewsTag({ tag: tagItem.slug })"
-                    class="border border-scout-purple/15 bg-white px-3 py-1 text-xs font-bold tracking-[0.2em] text-scout-purple uppercase transition hover:border-scout-purple/35 hover:bg-scout-purple/12"
+                    class="border border-scout-purple/15 bg-white px-3 py-1 text-xs font-bold tracking-[0.2em] text-scout-purple uppercase transition hover:border-scout-purple/35 hover:bg-scout-purple/12 dark:border-scout-purple/40 dark:bg-scout-purple/15 dark:text-scout-pink dark:hover:bg-scout-purple/25"
                 >
                     {{ tagItem.name }}
                 </Link>

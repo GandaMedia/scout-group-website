@@ -10,7 +10,7 @@
 @source '../../vendor/guava/calendar/resources/**/*';
 @source "../node_modules/@inertiaui/modal-vue/src";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
     --font-sans:
@@ -143,39 +143,39 @@
 }
 
 .dark {
-    --background: hsl(0 0% 3.9%);
-    --foreground: hsl(0 0% 98%);
-    --card: hsl(0 0% 3.9%);
-    --card-foreground: hsl(0 0% 98%);
-    --popover: hsl(0 0% 3.9%);
-    --popover-foreground: hsl(0 0% 98%);
-    --primary: hsl(0 0% 98%);
-    --primary-foreground: hsl(0 0% 9%);
-    --secondary: hsl(0 0% 14.9%);
-    --secondary-foreground: hsl(0 0% 98%);
-    --muted: hsl(0 0% 16.08%);
-    --muted-foreground: hsl(0 0% 63.9%);
-    --accent: hsl(0 0% 14.9%);
-    --accent-foreground: hsl(0 0% 98%);
+    --background: hsl(199 96% 8%);
+    --foreground: hsl(210 40% 98%);
+    --card: hsl(200 84% 11%);
+    --card-foreground: hsl(210 40% 98%);
+    --popover: hsl(200 84% 11%);
+    --popover-foreground: hsl(210 40% 98%);
+    --primary: hsl(268 84% 62%);
+    --primary-foreground: hsl(0 0% 100%);
+    --secondary: hsl(205 88% 17%);
+    --secondary-foreground: hsl(210 40% 98%);
+    --muted: hsl(201 72% 15%);
+    --muted-foreground: hsl(200 24% 76%);
+    --accent: hsl(204 94% 20%);
+    --accent-foreground: hsl(210 40% 98%);
     --destructive: hsl(0 84% 60%);
     --destructive-foreground: hsl(0 0% 98%);
-    --border: hsl(0 0% 14.9%);
-    --input: hsl(0 0% 14.9%);
-    --ring: hsl(0 0% 83.1%);
-    --chart-1: hsl(220 70% 50%);
-    --chart-2: hsl(160 60% 45%);
-    --chart-3: hsl(30 80% 55%);
-    --chart-4: hsl(280 65% 60%);
-    --chart-5: hsl(340 75% 55%);
-    --sidebar-background: hsl(0 0% 7%);
-    --sidebar-foreground: hsl(0 0% 95.9%);
-    --sidebar-primary: hsl(360, 100%, 100%);
+    --border: hsl(198 52% 24%);
+    --input: hsl(199 60% 18%);
+    --ring: hsl(55 100% 58%);
+    --chart-1: hsl(268 84% 62%);
+    --chart-2: hsl(178 89% 39%);
+    --chart-3: hsl(131 66% 43%);
+    --chart-4: hsl(55 100% 58%);
+    --chart-5: hsl(13 85% 53%);
+    --sidebar-background: hsl(199 96% 8%);
+    --sidebar-foreground: hsl(210 40% 98%);
+    --sidebar-primary: hsl(268 84% 62%);
     --sidebar-primary-foreground: hsl(0 0% 100%);
-    --sidebar-accent: hsl(0 0% 15.9%);
-    --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-    --sidebar-border: hsl(0 0% 15.9%);
+    --sidebar-accent: hsl(205 88% 17%);
+    --sidebar-accent-foreground: hsl(210 40% 98%);
+    --sidebar-border: hsl(198 52% 24%);
     --sidebar-ring: hsl(217.2 91.2% 59.8%);
-    --sidebar: hsl(240 5.9% 10%);
+    --sidebar: hsl(200 84% 11%);
 }
 
 @layer base {

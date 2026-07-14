@@ -160,7 +160,7 @@ onMounted(async () => {
         <SocialMeta :title="section.title" :description="section.intro" />
 
         <main
-            class="bg-linear-to-b from-white via-scout-pink/10 to-white pb-16"
+            class="bg-linear-to-b from-white via-scout-pink/10 to-white pb-16 dark:from-background dark:via-scout-purple/10 dark:to-background"
         >
             <section class="mx-auto max-w-7xl px-4 py-10 lg:px-8 lg:py-14">
                 <div
@@ -185,18 +185,18 @@ onMounted(async () => {
                     </div>
 
                     <div
-                        class="bg-white px-6 py-8 shadow-sm ring-1 ring-scout-purple/10 lg:px-8 lg:py-10"
+                        class="bg-white px-6 py-8 shadow-sm ring-1 ring-scout-purple/10 lg:px-8 lg:py-10 dark:bg-card dark:shadow-none dark:ring-white/10"
                     >
                         <div
                             v-if="successMessage"
-                            class="mb-6 rounded-lg border border-scout-green/25 bg-scout-green/10 px-4 py-3 text-sm font-medium text-scout-navy"
+                            class="mb-6 rounded-lg border border-scout-green/25 bg-scout-green/10 px-4 py-3 text-sm font-medium text-scout-navy dark:text-white"
                         >
                             {{ successMessage }}
                         </div>
 
                         <div
                             v-if="!form.is_configured"
-                            class="rounded-lg border border-scout-red/20 bg-scout-red/10 px-4 py-3 text-sm text-scout-navy"
+                            class="rounded-lg border border-scout-red/20 bg-scout-red/10 px-4 py-3 text-sm text-scout-navy dark:text-white"
                         >
                             The waiting list form is not configured yet. Please
                             update the site settings in the admin area.

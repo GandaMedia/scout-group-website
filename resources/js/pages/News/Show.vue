@@ -47,7 +47,7 @@ const submit = (): void => {
             :noIndex="post.is_password_protected"
         />
 
-        <main class="bg-white pb-20">
+        <main class="bg-white pb-20 dark:bg-background">
             <section class="px-4 pt-10 lg:px-0">
                 <div class="mx-auto max-w-7xl">
                     <Link
@@ -59,7 +59,7 @@ const submit = (): void => {
                     </Link>
 
                     <div
-                        class="mt-6 overflow-hidden border border-scout-purple/10 bg-white"
+                        class="mt-6 overflow-hidden border border-scout-purple/10 bg-white dark:border-white/10 dark:bg-card"
                     >
                         <div
                             class="bg-scout-navy px-6 py-10 text-white lg:px-12 lg:py-12"
@@ -97,7 +97,7 @@ const submit = (): void => {
                             </div>
                         </div>
 
-                        <div class="bg-white">
+                        <div class="bg-white dark:bg-card">
                             <div
                                 v-if="
                                     post.is_password_protected &&
@@ -106,7 +106,7 @@ const submit = (): void => {
                                 class="mx-auto max-w-2xl px-6 py-12 lg:px-12"
                             >
                                 <div
-                                    class="border border-scout-purple/10 bg-slate-50 p-6"
+                                    class="border border-scout-purple/10 bg-slate-50 p-6 dark:border-white/10 dark:bg-background"
                                 >
                                     <p
                                         class="text-sm font-black tracking-[0.24em] text-scout-red uppercase"
@@ -114,7 +114,7 @@ const submit = (): void => {
                                         Password protected
                                     </p>
                                     <p
-                                        class="mt-4 text-base leading-7 text-slate-700"
+                                        class="mt-4 text-base leading-7 text-slate-700 dark:text-muted-foreground"
                                     >
                                         Enter the site-wide post password to
                                         view this update. Access stays active
@@ -129,7 +129,7 @@ const submit = (): void => {
                                         <div>
                                             <label
                                                 for="post-password"
-                                                class="mb-2 block text-sm font-bold tracking-[0.18em] text-scout-navy uppercase"
+                                                class="mb-2 block text-sm font-bold tracking-[0.18em] text-scout-navy uppercase dark:text-white"
                                             >
                                                 Password
                                             </label>
@@ -137,7 +137,7 @@ const submit = (): void => {
                                                 id="post-password"
                                                 v-model="form.password"
                                                 type="password"
-                                                class="w-full border border-scout-purple/15 bg-white px-4 py-3 text-base text-scout-navy transition outline-none focus:border-scout-red"
+                                                class="w-full border border-scout-purple/15 bg-white px-4 py-3 text-base text-scout-navy transition outline-none focus:border-scout-red dark:border-white/10 dark:bg-card dark:text-white"
                                                 autocomplete="current-password"
                                             />
                                             <InputError

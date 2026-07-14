@@ -31,7 +31,9 @@ const dateLabel = new Intl.DateTimeFormat('en-GB', {
             :image="event.image"
             type="article"
         />
-        <main class="mx-auto min-h-[55vh] max-w-5xl px-4 py-12 lg:px-0">
+        <main
+            class="mx-auto min-h-[55vh] max-w-5xl px-4 py-12 text-foreground lg:px-0"
+        >
             <Link
                 :href="calendar()"
                 class="text-sm font-black text-scout-purple uppercase"
@@ -51,7 +53,9 @@ const dateLabel = new Intl.DateTimeFormat('en-GB', {
                     >{{ section }}</span
                 >
             </div>
-            <h1 class="mt-4 text-4xl font-black text-scout-navy lg:text-6xl">
+            <h1
+                class="mt-4 text-4xl font-black text-scout-navy lg:text-6xl dark:text-white"
+            >
                 {{ event.title }}
             </h1>
             <p class="mt-5 text-lg font-bold text-scout-purple">
@@ -59,11 +63,11 @@ const dateLabel = new Intl.DateTimeFormat('en-GB', {
             </p>
             <p
                 v-if="event.content"
-                class="mt-8 text-lg leading-8 whitespace-pre-line text-slate-700"
+                class="mt-8 text-lg leading-8 whitespace-pre-line text-slate-700 dark:text-muted-foreground"
             >
                 {{ event.content }}
             </p>
-            <p v-else class="mt-8 text-slate-600">
+            <p v-else class="mt-8 text-slate-600 dark:text-muted-foreground">
                 More details for this event have not been added yet.
             </p>
         </main>

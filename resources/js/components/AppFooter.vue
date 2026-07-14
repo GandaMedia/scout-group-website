@@ -1,5 +1,7 @@
 <template>
-    <div class="mt-8 w-full bg-scout-purple py-12 lg:mt-12 lg:py-16">
+    <div
+        class="mt-8 w-full bg-scout-purple py-12 lg:mt-12 lg:py-16 dark:bg-scout-night"
+    >
         <div
             class="mx-auto grid max-w-7xl grid-cols-1 gap-6 text-white lg:grid-cols-4"
         >

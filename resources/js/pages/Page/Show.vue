@@ -27,7 +27,7 @@ const pageImage = computed((): string | null => {
         <SocialMeta :title="page.title" :image="pageImage" />
 
         <main
-            class="bg-linear-to-b from-white via-scout-pink/10 to-white pb-16"
+            class="bg-linear-to-b from-white via-scout-pink/10 to-white pb-16 dark:from-background dark:via-scout-purple/10 dark:to-background"
         >
             <PageBlockRenderer :blocks="page.blocks" :pageSlug="page.slug" />
         </main>

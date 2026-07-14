@@ -1,10 +1,10 @@
 <template>
-    <div class="px-4 lg:px-0">
+    <div class="px-4 lg:px-0 dark:bg-background">
         <div
             class="relative z-20 mx-auto mb-2 flex max-w-7xl flex-row flex-wrap items-center justify-between gap-y-4 py-4"
         >
             <Link :href="HomeController()" class="flex items-center gap-x-2">
-                <GroupLogo class="h-18 text-scout-purple" />
+                <GroupLogo class="h-18 text-scout-purple dark:text-white" />
                 <h1 class="sr-only">{{ groupProfile.name }}</h1>
             </Link>
             <MainMenu />
@@ -32,7 +32,10 @@
             </div>
         </div>
     </div>
-    <div v-if="sectionBarItems.length" class="lg:bg-scout-purple">
+    <div
+        v-if="sectionBarItems.length"
+        class="lg:bg-scout-purple dark:lg:bg-scout-night"
+    >
         <div
             class="mx-auto grid max-w-7xl grid-cols-1 text-center lg:grid-cols-[var(--section-grid-columns)]"
             :style="{

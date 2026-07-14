@@ -141,18 +141,18 @@ onMounted(async () => {
             </div>
 
             <div
-                class="bg-white px-6 py-8 shadow-sm ring-1 ring-scout-purple/10 lg:px-8 lg:py-10"
+                class="bg-white px-6 py-8 shadow-sm ring-1 ring-scout-purple/10 lg:px-8 lg:py-10 dark:bg-card dark:shadow-none dark:ring-white/10"
             >
                 <div
                     v-if="successMessage"
-                    class="mb-6 rounded-lg border border-scout-green/25 bg-scout-green/10 px-4 py-3 text-sm font-medium text-scout-navy"
+                    class="mb-6 rounded-lg border border-scout-green/25 bg-scout-green/10 px-4 py-3 text-sm font-medium text-scout-navy dark:text-white"
                 >
                     {{ successMessage }}
                 </div>
 
                 <div
                     v-if="!data.is_configured"
-                    class="rounded-lg border border-scout-red/20 bg-scout-red/10 px-4 py-3 text-sm text-scout-navy"
+                    class="rounded-lg border border-scout-red/20 bg-scout-red/10 px-4 py-3 text-sm text-scout-navy dark:text-white"
                 >
                     The contact form is not configured yet. Please update the
                     group profile in the admin area.

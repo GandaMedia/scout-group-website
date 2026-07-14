@@ -37,7 +37,7 @@ defineProps<{
                     <article
                         v-for="leader in data.leaders"
                         :key="`${leader.name}-${leader.scout_name ?? 'leader'}`"
-                        class="group overflow-hidden bg-white text-scout-navy"
+                        class="group overflow-hidden bg-white text-scout-navy dark:bg-card dark:text-white"
                     >
                         <div
                             class="relative aspect-square overflow-hidden bg-scout-blue/12"
@@ -67,7 +67,7 @@ defineProps<{
                                 {{ leader.name }}
                             </h3>
                             <div
-                                class="prose prose-sm mt-4 max-w-none prose-p:leading-7 prose-strong:text-scout-navy"
+                                class="prose prose-sm mt-4 max-w-none dark:prose-invert prose-p:leading-7 prose-strong:text-scout-navy dark:prose-strong:text-white"
                                 v-html="leader.bio"
                             />
                             <p
